@@ -1,4 +1,4 @@
-from cloudlink import CloudLink
+from WebLink import server
 
 """
 
@@ -38,13 +38,13 @@ def on_close(client):
     print("Client disconnected:", client["id"])
 
 if __name__ == "__main__":
-    cl = CloudLink(debug=False)
+    cl = server(debug=False)
     # Instanciate CloudLink
     
-    cl.callback("on_packet", on_packet)
-    cl.callback("on_error", on_error)
-    cl.callback("on_connect", on_connect)
-    cl.callback("on_close", on_close)
+    cl.callback(on_packet)
+    cl.callback(on_error)
+    cl.callback(on_connect)
+    cl.callback(on_close)
     # Specify callbacks to functions above
     
     #cl.trustedAccess(True, ["test"])

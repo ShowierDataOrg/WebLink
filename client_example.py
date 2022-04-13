@@ -1,4 +1,4 @@
-from cloudlink import CloudLink
+from WebLink import client
 
 """
 CloudLink v0.1.7 Client Example
@@ -45,14 +45,14 @@ def on_close():
     print("Goodbye!")
 
 if __name__ == "__main__":
-    cl = CloudLink(debug=True) 
+    cl = client(debug=True) 
     # Instanciates a CloudLink object into memory.
     
-    cl.callback("on_packet", on_packet)
-    cl.callback("on_error", on_error)
-    cl.callback("on_connect", on_connect)
-    cl.callback("on_close", on_close)
+    cl.callback(on_packet)
+    cl.callback(on_error)
+    cl.Callback(on_connect)
+    cl.callback(on_close)
     # Create callbacks to functions.
     
-    cl.client()
+    cl.run()
     # Start CloudLink and run as a client.
